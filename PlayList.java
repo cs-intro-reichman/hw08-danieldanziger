@@ -109,10 +109,10 @@ class PlayList {
             this.size ++;
           }
           else{
-            for (int j = size -1; j >= i; j++) {                  //make j the last index of the size, than for all indexes larger than i move them one forward
-            tracks[j+1] = tracks[j];
+            for (int j = size; j > i; j--) {                  
+            tracks[j] = tracks[j-1];
            }  
-           tracks[i] = track;                                      //now make the track in index i the new track we want to add and add to the total size
+           tracks[i] = track;                                    
            size++; 
         }
            return true;  
