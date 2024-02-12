@@ -36,11 +36,11 @@ class PlayList {
      *  Otherwise, appends the track and returns true. */
     public boolean add(Track track) {
         //// replace the following statement with your code
-        if (this.size >= max.Size) {                   //if the list bigger than the max
+        if (this.size >= maxSize) {                   //if the list bigger than the max
             return false;
         }
-        this.tracks[this.size] = track;                          //otherwise, add the track to the size (one more; the track is size-1 thats why just size) and add one to the total size
-        this.size++;
+        tracks[this.size] = track;                          //otherwise, add the track to the size (one more; the track is size-1 thats why just size) and add one to the total size
+        size++;
         return true;
     }
 
@@ -92,15 +92,15 @@ class PlayList {
      *  returns true. */
     public boolean add(int i, Track track) {
         //// replace the following statement with your code
-        if(i < 0 || i > this.size || this.size == this.maxSize){                   //as long as the index is not negative, larger than the size or the list is full return false
-            return false;
-        }
-           for (int j = size-1; j >= i; j--) {                  //make j the last index of the size, than for all indexes larger than i move them one forward
+        if(size < maxSize){                                     //if the size is smaller than maximum = has a place for another track          
+           for (int j = size -1; j >= i; j--) {                  //make j the last index of the size, than for all indexes larger than i move them one forward
             tracks[j+1] = tracks[j];
            }  
            tracks[i] = track;                                      //now make the track in index i the new track we want to add and add to the total size
            size++;
-           return true;                                  
+           return true;  
+        }
+        return false;                                
     }
      
     /** Removes the track in the given index from this list.
