@@ -93,14 +93,14 @@ class PlayList {
     public boolean add(int i, Track track) {
         //// replace the following statement with your code
         if (i < 0 || i > this.size || this.size == this.maxSize) {
-            return false;
-        }
-        for (int j = this.size; j >= i; j++) {            //as long as the size is larger than the index we want to insert the track in,                                            
+        for (int j = this.size -1; j >= i; j++) {            //as long as the size is larger than the index we want to insert the track in,                                            
             this.tracks [j + 1]  = tracks[j];           //take them one forward to make place to the new track  
-             tracks[i] = track;                         //make the track in index i the new track and add to the total size
-             size ++;                                                             
         }
-        return true;
+            tracks[i] = track;                         //make the track in index i the new track and add to the total size
+             size ++; 
+             return true;                                                         
+        }
+        return false ;
     }
      
     /** Removes the track in the given index from this list.
@@ -193,7 +193,7 @@ class PlayList {
         int minDurIndx = minIndex(i);                     //save the index of the track with the minimal duration
         Track temp = this.tracks[i];                        //save the index of the track we're checking
         this.tracks[i] = this.tracks[minDurIndx];          //if the track we just checked equals the minIndex we found
-        this.tracks[minDurIndx] = temp;                     //calling the minIndex method 
+        this.tracks[minDurIndx] = temp;                     //calling the minIndex method \
         }
     }
 }
