@@ -92,12 +92,12 @@ class PlayList {
      *  returns true. */
     public boolean add(int i, Track track) {
         //// replace the following statement with your code
-        if (i < 0 || i > this.size || this.size == this.maxSize) {
+        if(i >= 0 && size != maxSize){
         for (int j = this.size -1; j >= i; j++) {            //as long as the size is larger than the index we want to insert the track in,                                            
             this.tracks [j + 1]  = tracks[j];           //take them one forward to make place to the new track  
         }
-            tracks[i] = track;                         //make the track in index i the new track and add to the total size
-             size ++; 
+             this.tracks[i] = track;                         //make the track in index i the new track and add to the total size
+             size++; 
              return true;                                                         
         }
         return false ;
