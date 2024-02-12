@@ -36,12 +36,14 @@ class PlayList {
      *  Otherwise, appends the track and returns true. */
     public boolean add(Track track) {
         //// replace the following statement with your code
-        if (this.size >= maxSize) {                   //if the list bigger than the max
+        if (this.size == maxSize) {                   //if we are at max place
             return false;
         }
-        tracks[this.size] = track;                          //otherwise, add the track to the size (one more; the track is size-1 thats why just size) and add one to the total size
+        else{
+        tracks[size] = track;                          //otherwise, add the track to the size (one more; the track is size-1 thats why just size) and add one to the total size
         size++;
         return true;
+    }
     }
 
     /** Returns the data of this list, as a string. Each track appears in a separate line. */
@@ -49,7 +51,14 @@ class PlayList {
     public String toString() {
         //// replace the following statement with your code
         
-        return "";
+        String str = "";                                  //making a new string to save the data in
+        for(int i = 0; i < size ; i++){                    //go over the tracks
+            str = tracks[i]. toString();                   //save each place in the string we made
+            if(i != size - 1){                            //move on until the end of the tracks size
+                str += "\n";
+            }
+        }
+        return str;
     }
 
     /** Removes the last track from this list. If the list is empty, does nothing. */
