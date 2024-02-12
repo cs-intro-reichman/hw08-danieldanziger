@@ -101,8 +101,8 @@ class PlayList {
      *  returns true. */
     public boolean add(int i, Track track) {
         //// replace the following statement with your code
-        if(size < maxSize){                                     //if the size is smaller than maximum = has a place for another track          
-           for (int j = size -1; j >= i; j--) {                  //make j the last index of the size, than for all indexes larger than i move them one forward
+        if(i >= 0 && size != maxSize){                             //if the index is larger or is 0 and is not the maximun size
+            for (int j = size -1; j >= i; j++) {                  //make j the last index of the size, than for all indexes larger than i move them one forward
             tracks[j+1] = tracks[j];
            }  
            tracks[i] = track;                                      //now make the track in index i the new track we want to add and add to the total size
