@@ -39,7 +39,7 @@ class PlayList {
         if (this.size == this.tracks.length) {                   //if the list is full returns false
             return false;
         }
-        this.tracks[this.size] = track;                          //otherwise, add the track to the size (one more; the track is size-1 thats why just size) and add one to the total size
+        this.tracks[this.size-1] = track;                          //otherwise, add the track to the size (one more; the track is size-1 thats why just size) and add one to the total size
         this.size++;
         return true;
     }
@@ -96,7 +96,7 @@ class PlayList {
             return false;
         }
            for (int j = this.size; j > i; j++) {                  //make j the last index of the size, than for all indexes larger than i move them one forward
-            this.tracks[j] = tracks[j-1];
+            this.tracks[j+1] = tracks[j];
            }  
            tracks[i] = track;                                      //now make the track in index i the new track we want to add and add to the total size
            size++;
