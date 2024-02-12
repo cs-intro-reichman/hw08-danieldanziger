@@ -101,21 +101,22 @@ class PlayList {
      *  returns true. */
     public boolean add(int i, Track track) {
         //// replace the following statement with your code
-        if(i >= 0 && size != maxSize){                             //if the index is larger or is 0 and is not the maximun size
+        if(i < 0 || i > this.size || this.size == this.maxSize){   //if the index given is negative, larger than the size or is the max return false
+            return false;
+        }
+          if (this.size == 0){
+            this.tracks[i] = track;
+            this.size ++;
+          }
+          else{
             for (int j = size -1; j >= i; j++) {                  //make j the last index of the size, than for all indexes larger than i move them one forward
             tracks[j+1] = tracks[j];
            }  
            tracks[i] = track;                                      //now make the track in index i the new track we want to add and add to the total size
-           size++;
+           size++; 
+        }
            return true;  
-        }
-        if (this.size == 0){
-            this.tracks[i] = track;
-            size ++;
-            return true;
-        }
-        return false;                                
-    }
+        }            
      
     /** Removes the track in the given index from this list.
      *  If the list is empty, or the given index is negative or too big for this list, 
