@@ -109,6 +109,11 @@ class PlayList {
            size++;
            return true;  
         }
+        if (this.size == 0){
+            this.tracks[i] = track;
+            size ++;
+            return true;
+        }
         return false;                                
     }
      
